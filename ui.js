@@ -44,6 +44,8 @@ class UI {
    * Show alert when user not found => 404 error
    */
   showAlert(message, className) {
+    //clear any remaining alert
+    this.clearAlert();
     //create a div
     const div = document.createElement("div");
     //assign div
@@ -56,6 +58,18 @@ class UI {
     const search = document.querySelector(".search");
     //insert
     container.insertBefore(div, search);
+  }
+
+  /**
+   * clear alert message
+   */
+
+  clearAlert() {
+    const currentAlert = document.querySelector(".alert");
+
+    if (currentAlert) {
+      currentAlert.remove();
+    }
   }
 
   /**
