@@ -8,3 +8,4 @@ This is a github finder app:
   - [x] show how many forks, watchers
 - [x] Boostrap for UI
 - [x] Use of DOM
+- [x] Use of Fetch API
