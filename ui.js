@@ -40,6 +40,29 @@ class UI {
       `;
   }
 
+  showRepos(repo) {
+    let output = "";
+    repo.forEach(function (repo) {
+      output += `
+        <div class="card card-body mb-2">
+          <div class="row">
+            <div class="col-md-6">
+              <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+            </div>
+            <div class="col-md-6">
+              <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
+              <span class="badge badge-secondary">Watchers: ${repo.watchers_count}</span>
+              <span class="badge badge-success">Forks: ${repo.forks_count}</span>
+            </div>
+          </div>
+        </div>
+        `;
+    });
+
+    //output repos
+    document.getElementById("repos").innerHTML = output;
+  }
+
   /**
    * Show alert when user not found => 404 error
    */
@@ -58,6 +81,11 @@ class UI {
     const search = document.querySelector(".search");
     //insert
     container.insertBefore(div, search);
+
+    //timeout of laert after 3 sec
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
   }
 
   /**
